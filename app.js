@@ -1,11 +1,24 @@
-import modificador from './modificador.js';
+import modificad from "./modificad.js";
+import ingrediente from "./ingrediente.js";
 
 
-//console.log(modificador)
+let ingredientesOrdenados = modificad.ordenar(ingrediente, 'nome')
 
-//var ingredientes = ['sal','água','mel','mostarta']; // vetor
-//var resultadoCapitalizado = modificador.capitalizarFN(ingredientes);
-//var resultadoOrdenado = modificador.ordenarFN(resultadoCapitalizado);
+let ingredientesCapitalizados = modificad.capitalizar(ingredientesOrdenados, 'nome')
 
-//console.log(resultadoCapitalizado);
-//console.log(resultadoOrdenado);
+
+let conteinerIngredientes = document.getElementById('conteiner-ingredientes');
+
+for(let ingredientes of ingredientesCapitalizados){
+    let textoHTML = `  
+    <div class="ingreditens">
+            <img src="${ingredientes.img}">
+            <p class="nome-igredientes">${ingredientes.nome}</p>
+
+    </div>`;
+
+   conteinerIngredientes.innerHTML += textoHTML;
+
+}
+
+
